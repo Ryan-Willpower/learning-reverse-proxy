@@ -1,6 +1,10 @@
 import dotenv from "dotenv"
 
-const localVariable = dotenv.config()
+const isProduction = process.env.NODE_ENV === "production"
+
+const localVariable = dotenv.config({
+  path: isProduction ? `.production.env` : `.env`,
+})
 
 if (!localVariable) {
   throw new Error("no .env found!")
