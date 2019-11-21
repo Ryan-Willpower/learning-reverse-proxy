@@ -5,7 +5,7 @@ db/
 **/node_modules/
 
 # confidential data
-.env
+*.env
 
 # node build file
 **/dist
