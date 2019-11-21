@@ -1,0 +1,8 @@
+# store database data
+db/
+
+# module that can install after move file to somewhere
+**/node_modules/
+
+# confidential data
+.env
