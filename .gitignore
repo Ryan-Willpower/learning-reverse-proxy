@@ -6,3 +6,6 @@ db/
 
 # confidential data
 .env
+
+# node build file
+**/dist
