@@ -15,14 +15,28 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
 
   api:
-    build: .
+    build:
+      context: .
+      dockerfile: api.Dockerfile
     container_name: api
-    ports:
-      - 80:5000
     networks:
       - actualNetwork
     depends_on:
       - db
+
+  nginx:
+    build:
+      context: .
+      dockerfile: nginx.Dockerfile
+    container_name: nginx
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d
+    ports:
+      - 80:80
+    networks:
+      - actualNetwork
+    environment:
+      WAIT_HOSTS: db:27017, api:5000
 
 networks:
   actualNetwork:
