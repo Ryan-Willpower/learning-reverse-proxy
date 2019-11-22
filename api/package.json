@@ -18,6 +18,7 @@
     "pino": "^5.14.0"
   },
   "scripts": {
-    "start": "nodemon -x 'ts-node src/index.ts' -w 'src/**/*.ts' -e 'ts'"
+    "start": "nodemon -x 'ts-node src/index.ts' -w 'src/**/*.ts' -e 'ts'",
+    "build": "tsc --build"
   }
 }
